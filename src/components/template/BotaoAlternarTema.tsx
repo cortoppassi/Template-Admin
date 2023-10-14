@@ -6,7 +6,7 @@ interface BotaoAlternarTemaProps {
 }
 
 export default function BotaoAlternarTema(props: BotaoAlternarTemaProps) {
-  return props.tema === 'dark' ? (
+  return props.tema === '' ? (
     <div onClick={props.alternarTema} className={`
         hidden sm:flex items-center cursor-pointer
         bg-gradient-to-r from-yellow-300 to-yellow-600
