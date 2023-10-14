@@ -16,7 +16,7 @@ export default function MenuItem(props: MenuItemProps) {
       flex flex-col justify-center items-center
       h-20 w-20
       text-gray-700
-      dark: text-gray-200
+      dark:text-gray-200
       ${props.className}
     `}>
       {props.icone}
