@@ -10,7 +10,7 @@ interface MenuItemProps {
 export default function MenuItem(props: MenuItemProps) {
     function renderizarLink() {
         return (
-            <li className={`
+            <div className={`
                     flex flex-col justify-center items-center
                     h-20 w-20
                     dark:text-gray-200
@@ -20,7 +20,7 @@ export default function MenuItem(props: MenuItemProps) {
                 <span className={`text-xs font-light`}>
                     {props.texto}
                 </span>
-            </li>
+            </div>
         )
     }
     return (

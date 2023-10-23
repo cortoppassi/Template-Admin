@@ -3,6 +3,7 @@ import Image from 'next/image'
 import router from 'next/router'
 import loading from '../../../public/images/loading.gif'
 import useAuth from '../../data/hook/useAuth'
+import Script from 'next/script'
 
 export default function ForcarAutenticacao(props) {
 
@@ -12,7 +13,7 @@ export default function ForcarAutenticacao(props) {
         return (
             <>
                 <Head>
-                    <script
+                    <Script
                         dangerouslySetInnerHTML={{
                             __html: `
                                 if(!document.cookie?.includes("admin-template-cod3r-auth")) {
@@ -32,7 +33,7 @@ export default function ForcarAutenticacao(props) {
             <div className={`
                 flex justify-center items-center h-screen
             `}>
-                <Image src={loading} />
+                <Image src={loading} alt='loading' priority/>
             </div>
         )
     }
