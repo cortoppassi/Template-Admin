@@ -1,44 +1,40 @@
-import { Url } from "next/dist/shared/lib/router/router"
 import Link from "next/link"
-
-interface MenuItemProps{
-    url?: String
-    texto: String
+interface MenuItemProps {
+    texto: string
     icone: any
-    className?: String
-    onClickl?: (evento: any) => void
+    url?: string
+    className?: string
+    onClick?: (evento: any) => void
 }
 
 export default function MenuItem(props: MenuItemProps) {
-  function renderizarLink() {
+    function renderizarLink() {
+        return (
+            <li className={`
+                    flex flex-col justify-center items-center
+                    h-20 w-20
+                    dark:text-gray-200
+                    ${props.className}
+                `}>
+                {props.icone}
+                <span className={`text-xs font-light`}>
+                    {props.texto}
+                </span>
+            </li>
+        )
+    }
     return (
-      <div className={`
-      flex flex-col justify-center items-center
-      h-20 w-20
-      text-gray-700
-      dark:text-gray-200
-      ${props.className}
-    `}>
-      {props.icone}
-      <span className={`text-xs font-light`}>
-        
-        {props.texto}
-      </span>
-      </div>
+        <li onClick={props.onClick} className={`
+            hover:bg-gray-100 dark:hover:bg-gray-800
+            cursor-pointer
+        `}>
+            {props.url ? (
+                <Link href={props.url}>
+                    {renderizarLink()}
+                </Link>
+            ) : (
+                renderizarLink()
+            )}
+        </li>
     )
-  }
-  return (
-    <li onClick={props.onClickl} className={`
-        hover:bg-gray-100 dark:hover:bg-gray-800
-        cursor-pointer  
-      `}>
-      {props.url ? (
-        <Link href={props.url}>
-        {renderizarLink()}
-      </Link>
-      ) : (
-        renderizarLink()
-      )}
-    </li>
-  )
 }
